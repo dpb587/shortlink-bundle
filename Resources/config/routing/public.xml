@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="dpb_shortlink_index_index" pattern="/">
+        <default key="_controller">DPBShortlinkBundle:Index:index</default>
+    </route>
+
+    <route id="dpb_shortlink_link_click" pattern="/{code}">
+        <default key="_controller">DPBShortlinkBundle:Link:click</default>
+        <requirement key="_method">GET</requirement>
+        <requirement key="code">[0-9A-Za-z]+</requirement>
+    </route>
+
+    <route id="dpb_shortlink_link_qrcode" pattern="/{code}/qrcode.png">
+        <default key="_controller">DPBShortlinkBundle:Link:qrcode</default>
+        <requirement key="_method">GET</requirement>
+        <requirement key="code">[0-9A-Za-z]+</requirement>
+    </route>
+
+    <route id="dpb_shortlink_link_text" pattern="/{code}/url.txt">
+        <default key="_controller">DPBShortlinkBundle:Link:urltxt</default>
+        <requirement key="_method">GET</requirement>
+        <requirement key="code">[0-9A-Za-z]+</requirement>
+    </route>
+</routes>

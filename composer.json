@@ -1,0 +1,24 @@
+{
+    "authors" : [
+        {
+            "name" : "Danny Berger",
+            "email" : "dpb587@gmail.com",
+            "homepage" : "http://dpb587.me"
+        }
+    ],
+    "autoload" : {
+        "psr-0" : { "DPB\\Bundle\\ShortlinkBundle" : "" }
+    },
+    "description" : "A symfony2 bundle for creating a short link service (e.g. bit.ly, tiny.cc, t.co, goo.gl).",
+    "license" : "MIT",
+    "name" : "dpb587/shortlink-bundle",
+    "require" : {
+        "php" : ">=5.3.3",
+        "symfony/framework-bundle" : ">=2.1.0,<2.3-dev",
+        "doctrine/orm" : "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle" : "1.2.*",
+        "jms/serializer-bundle" : "dev-master"
+    },
+    "target-dir" : "DPB/Bundle/ShortlinkBundle",
+    "type" : "symfony-bundle"
+}

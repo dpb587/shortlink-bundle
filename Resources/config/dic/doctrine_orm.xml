@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="dpb_shortlink.click_manager.class">DPB\Bundle\ShortlinkBundle\Service\DoctrineORM\ClickManager</parameter>
+        <parameter key="dpb_shortlink.link_manager.class">DPB\Bundle\ShortlinkBundle\Service\DoctrineORM\LinkManager</parameter>
+
+        <parameter key="assetic.node.paths" type="collection"></parameter>
+        <parameter key="assetic.cache_dir">%kernel.cache_dir%/assetic</parameter>
+        <parameter key="assetic.bundles" type="collection"></parameter>
+    </parameters>
+
+    <services>
+        <service id="dpb_shortlink.click_manager" class="%dpb_shortlink.click_manager.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument type="collection">%dpb_shortlink.click</argument>
+        </service>
+
+        <service id="dpb_shortlink.link_manager" class="%dpb_shortlink.link_manager.class%">
+            <argument type="service" id="doctrine.orm.default_entity_manager" />
+            <argument>DPB\Bundle\ShortlinkBundle\Entity\Link</argument>
+            <argument type="service" id="security.context" />
+            <argument>%dpb_shortlink.link%</argument>
+        </service>
+    </services>
+</container>
