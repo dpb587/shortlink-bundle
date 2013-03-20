@@ -36,6 +36,7 @@ The following are the defaults (`./app/console config:dump dpb_shortcode`):
 **QR Codes** - separate library to install from [phpqrcode.sourceforge.net](http://phpqrcode.sourceforge.net/) (LGPL),
 if necessary...
 
+    mkdir Resources/vendor ; cd Resources/vendor/
     wget 'http://downloads.sourceforge.net/project/phpqrcode/releases/phpqrcode-2010100721_1.1.4.zip'
     unzip phpqrcode-2010100721_1.1.4.zip
     rm phpqrcode-2010100721_1.1.4.zip
@@ -48,7 +49,7 @@ Examples
 
  * `http://localhost/uKWRY9` - standard clickthru link
  * `http://localhost/uKWRY9/url.txt` - simple response of the destination URL
- * `http://localhost/uKWRY9/qrcode.png` - generate QR image - accepts `ec` (correction level; **`l`**, `m`, `q`, `h`) and `s` (size; **3**)
+ * `http://localhost/uKWRY9/qrcode.png` - generate QR image - accepts `ec` (correction level; `l`, `m`, `q`, `h`) and `s` (size; 3)
 
 **Security Configuration** (`app/config/security.yml`)
 
@@ -60,9 +61,6 @@ Examples
                         password: "mypass"
                         roles:
                             - "ROLE_DPB_SHORTLINK_CREATE"
-                    anon:
-                        password: "anon"
-                        roles: []
     firewalls:
         api:
             pattern: "^/\+/"
